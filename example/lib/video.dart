@@ -23,7 +23,8 @@ class VideoPlayout extends StatefulWidget {
 
 class _VideoPlayoutState extends State<VideoPlayout>
     with PlayerObserver, MultiAudioSupport {
-  final String? _url = null;
+  final String? _url =
+      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
   List<HLSManifestLanguage> _hlsLanguages = [];
 
   @override

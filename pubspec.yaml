@@ -1,6 +1,7 @@
 name: flutter_playout
-description: This plugin provides audio/video playback from a URL with background audio support, lock screen
-  controls & player events for both iOS and Android.
+description: This plugin provides audio/video playback from a URL with
+  background audio support, lock screen controls & player events for both iOS
+  and Android.
 version: 2.0.2-rc3
 homepage: https://www.mta.tv
 repository: https://github.com/muslimtv/flutter_playout
@@ -10,6 +11,7 @@ environment:
   flutter: ">=2.5.0"
 
 dependencies:
+  cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
 
@@ -19,7 +21,6 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
   # This section identifies this Flutter project as a plugin project.
@@ -33,7 +34,6 @@ flutter:
         pluginClass: FlutterPlayoutPlugin
       ios:
         pluginClass: FlutterPlayoutPlugin
-
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
@@ -44,7 +44,6 @@ flutter:
   #
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # To add custom fonts to your plugin package, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

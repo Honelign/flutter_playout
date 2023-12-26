@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_playout/player_state.dart';
 
 import 'audio.dart';
@@ -30,7 +31,6 @@ class _PlayoutExampleState extends State<PlayoutExample> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        brightness: Brightness.dark,
         backgroundColor: Colors.grey[900],
         centerTitle: true,
         leading: IconButton(
@@ -96,7 +96,7 @@ class _PlayoutExampleState extends State<PlayoutExample> {
                   .copyWith(color: Colors.white),
             )
           ],
-        ),
+        ), systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       body: Container(
         color: Colors.black,
