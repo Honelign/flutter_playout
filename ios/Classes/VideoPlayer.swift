@@ -103,7 +103,7 @@ class VideoPlayer: NSObject, FlutterPlugin, FlutterStreamHandler, FlutterPlatfor
 
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(AVAudioSession.Category.playback)
+            try audioSession.setCategory(AVAudioSession.Category.playback, mode: .moviePlayback)
         } catch _ { }
 
         setupEventChannel(viewId: viewId, messenger: messenger, instance: self)

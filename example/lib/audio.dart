@@ -15,14 +15,14 @@ class AudioPlayout extends StatefulWidget {
 
   final PlayerState desiredState;
 
-  const AudioPlayout({Key key, this.desiredState}) : super(key: key);
+  const AudioPlayout({required this.desiredState});
 
   @override
   _AudioPlayout createState() => _AudioPlayout();
 }
 
 class _AudioPlayout extends State<AudioPlayout> with PlayerObserver {
-  Audio _audioPlayer;
+  Audio _audioPlayer = Audio.instance()!;
   PlayerState audioPlayerState = PlayerState.STOPPED;
   bool _loading = false;
   bool _isLive = false;
@@ -46,7 +46,7 @@ class _AudioPlayout extends State<AudioPlayout> with PlayerObserver {
     super.initState();
 
     // Init audio player with a callback to handle events
-    _audioPlayer = Audio.instance();
+    // _audioPlayer = Audio.instance();
 
     // Listen for audio player events
     listenForAudioPlayerEvents();
@@ -101,36 +101,36 @@ class _AudioPlayout extends State<AudioPlayout> with PlayerObserver {
     });
   }
 
-  @override
-  void onTime(int position) {
-    setState(() {
-      currentPlaybackPosition = Duration(seconds: position);
-    });
-  }
+  // @override
+  // void onTime(int position) {
+  //   setState(() {
+  //     currentPlaybackPosition = Duration(seconds: position);
+  //   });
+  // }
 
-  @override
-  void onSeek(int position, double offset) {
-    super.onSeek(position, offset);
-  }
+  // @override
+  // void onSeek(int position, double offset) {
+  //   super.onSeek(position, offset);
+  // }
 
-  @override
-  void onDuration(int duration) {
-    if (duration <= 0) {
-      setState(() {
-        _isLive = true;
-      });
-    } else {
-      setState(() {
-        _isLive = false;
-        this.duration = Duration(milliseconds: duration);
-      });
-    }
-  }
+  // @override
+  // void onDuration(int duration) {
+  //   if (duration <= 0) {
+  //     setState(() {
+  //       _isLive = true;
+  //     });
+  //   } else {
+  //     setState(() {
+  //       _isLive = false;
+  //       this.duration = Duration(milliseconds: duration);
+  //     });
+  //   }
+  // }
 
-  @override
-  void onError(String error) {
-    super.onError(error);
-  }
+  // @override
+  // void onError(String error) {
+  //   super.onError(error);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -235,8 +235,8 @@ class _AudioPlayout extends State<AudioPlayout> with PlayerObserver {
                 )
               : Slider(
                   activeColor: Colors.white,
-                  value: currentPlaybackPosition?.inMilliseconds?.toDouble() ??
-                      0.0,
+                  value:
+                      currentPlaybackPosition.inMilliseconds.toDouble() ?? 0.0,
                   onChanged: (double value) {
                     seekTo(value);
                   },
@@ -255,8 +255,8 @@ class _AudioPlayout extends State<AudioPlayout> with PlayerObserver {
                         _playbackPositionString(),
                         style: Theme.of(context)
                             .textTheme
-                            .bodyText2
-                            .copyWith(color: Colors.white),
+                            .bodyMedium
+                            
                       ),
                     ),
                   ],
